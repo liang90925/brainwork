@@ -27,7 +27,7 @@ public class Solution {
     if (numbers == null || numbers.length < 1) {
       return null;
     }
-    
+
     int i = 0, j = 1;
     while (i < numbers.length && j < numbers.length) {
       if((numbers[i] + numbers[j]) == target) {
