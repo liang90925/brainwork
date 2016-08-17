@@ -8,7 +8,8 @@ public class Solution {
         int tempResult = 1;
         for (int i = 0; i < nums.length - 1; i++) {
             int j = i + 1;
-            if (nums[j] == nums[i] + 1) {
+            if (nums[j] == nums[i]) { continue;}
+            else if (nums[j] == nums[i] + 1) {
                 tempResult++;
                 continue;
             } else {

@@ -13,7 +13,7 @@ public class Solution {
         cResult[index] = s.charAt(j);
         index++;
 
-        if (interval < length & interval > 0  && (j + interval) < length & index < length) {
+        if (interval < step & interval > 0  && (j + interval) < length & index < length) {
           cResult[index] = s.charAt(j + interval);
           index++;
         }

@@ -6,14 +6,14 @@ public class Solution {
       if (parantheses.contains(String.valueOf(c))) {
         stack.push(c);
       } else {
-        if (!stack.empty() && validateParantheses(stack.peek(), c)) {
+        if (!stack.isEmpty() && validateParantheses(stack.peek(), c)) {
           stack.pop();
         } else {
           return false;
         }
       }
     }
-    return stack.empty();
+    return stack.isEmpty();
   }
   private boolean validateParantheses(char c1, char c2) {
     return (c1=='(' && c2==')') || (c1=='{' && c2=='}') || (c1=='[' && c2==']');
