@@ -19,7 +19,7 @@ public class Solution {
         if (Integer.valueOf(v1[i]) != 0) return 1;
       }
     }
-    if (v2.length > v1.length {
+    if (v2.length > v1.length) {
       for (; i < v2.length; i++) {
         if (Integer.valueOf(v2[i]) != 0) return -1;
       }
