@@ -33,6 +33,7 @@ public class Solution {
         }
         result.add(sb.toString());
         lastIndex = i;
+        //!!!!!!!!!!!底下的if非常容易被忘记 要注意!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         if (i != wordsCount) {
           totalLth = words[i].length();
         }

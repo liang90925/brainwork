@@ -23,6 +23,7 @@ click to show corner cases.
 Corner Cases:
 A line other than the last line might contain only one word. What should you do in this case?
 In this case, that line should be left-justified.
+Another corner case is the last line is not always only contain one word!!!!!!!!!(不要自以为然)
 
 
 http://www.jiuzhang.com/solutions/text-justification/
