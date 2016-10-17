@@ -1,3 +1,6 @@
+// merge two sorted array 不同于 merge two sorted lists
+// 此题从后往前一一比较 
+
 public class Solution {
   public void merge(int[] nums1, int m, int[] nums2, int n) {
     int i = m - 1;
