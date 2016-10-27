@@ -5,3 +5,4 @@ http://www.cnblogs.com/grandyang/p/4656517.html
 http://blog.csdn.net/xudli/article/details/46955257
 
 java Deque: https://docs.oracle.com/javase/8/docs/api/java/util/Deque.html
+O(n)
