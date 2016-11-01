@@ -1,92 +1,109 @@
-public class Solution {
-    private static int N = 26;
-  // build a new class to hold info we need
-    public static class Node {
-      private int degree;
-      private List<Integer> nextNodes;
+import java.util.*;
 
-      public void Node() {
-        this.degree = 0;
-      }
+public class Solution {
+  private static final int N = 26;
+
+  public class Node{
+    private char name;
+    private int inDegree;
+    private List<Node> nexts;
+    public Node(char name, int inDegree) {
+      this.name = name;
+      this.inDegree = inDegree;
+      this.nexts = new ArrayList<>();
+    }
+  }
+
+  public String alienOrder(String[] words) {
+    if (words == null || words.length == 0) {
+      return "";
     }
 
-    public static String alienOrder(String[] words) {
-      // create an Node array that holds 26 Nodes
-      Node[] node = new Node[N];
-      // initiate the node
-      for (int i = 0; i < N; i++) {
-        node[i] = new Node();
+    Node[] nodes = new Node[N];
+    for (int i = 0; i < N; i++) {
+      nodes[i] = new Node(toChar(i), 0);
+    }
+
+    boolean[] existedNodes = new boolean[N];
+
+    int wordsCount = words.length;
+
+    for (int i = 0; i < wordsCount; i++) {
+      String currW = words[i];
+      int currWLen = currW.length();
+
+      for (int j = 0; j < currWLen; j++) {
+        existedNodes[toInt(currW.charAt(j))] = true;
       }
 
-      // create an array to record the letters showed up in the input
-      boolean[] existed = new boolean[N];
+      if (i != wordsCount - 1) {
+        int endPoint = -1;
+        String nextW = words[i + 1];
+        int nextWLen = nextW.length();
+        int minLen = Math.min(currWLen, nextWLen);
 
-      // build the graph
-      for (int i = 0; i < words.length; i++) {
-        int startPoint = 0, endPoint = 0;
-        // loop the current words[i] and add it to existed array
-        for (int j = 0 ; j < words[i].length(); j++) {
-          existed[charToInt(words[i].charAt(j))] = true;
-        }
-
-        if (i != words.length - 1) {
-          for (int k = 0; k < Math.min(words[i].length(), words[i + 1].length()); k++) {
-            if (words[i].charAt(k) != words[i + 1].charAt(k)) {
-              startPoint = charToInt(words[i].charAt(k));
-              endPoint = charToInt(words[i + 1].charAt(k));
-              break;
-            }
+        for (int j = 0; j < minLen; j++) {
+          if (currW.charAt(j) != nextW.charAt(j)) {
+            endPoint = j;
+            break;
           }
         }
-        if (startPoint != endPoint) {
-          System.out.println("startPoint: " + startPoint);
-          if (node[startPoint].nextNodes == null) {
-            node[startPoint].nextNodes = new ArrayList<>();
-          }
-          node[startPoint].nextNodes.add(endPoint);
-          node[endPoint].degree++;
-        }
-      }
 
-      // topology sort
-      Queue<Integer> inxQue = new LinkedList<>();
-      String ans = "";
-
-      for (int i = 0; i < N; i++) {
-        // find the 0 degree node saw in the input and put them to queue;
-        if (node[i].degree == 0 && existed[i]) {
-          inxQue.offer(i);
-          ans = ans + intToChar(i);
-        }
-      }
-
-      while (!inxQue.isEmpty()) {
-        int currInx = inxQue.poll();
-        if (node[currInx].nextNodes != null) {
-          for (int i : node[currInx].nextNodes) {
-            node[i].degree--;
-            if (node[i].degree == 0) {
-              inxQue.offer(i);
-              ans = ans + intToChar(i);
-            }
-          }
-        }
-      }
-      for (int i = 0; i < N; i++) {
-        if (node[i].degree != 0) {
+        if (endPoint == -1 && currWLen > nextWLen) {
           return "";
         }
+
+        if (endPoint != -1) {
+          int nextWInx = toInt(nextW.charAt(endPoint));
+          int currWInx = toInt(currW.charAt(endPoint));
+          nodes[nextWInx].inDegree++;
+          nodes[currWInx].nexts.add(nodes[nextWInx]);
+        }
       }
-      return ans;
-    }
-    // first build the map;
-    // using topology sort to get the result;
-
-    private static int charToInt(char c) {
-      return c - 'a';
     }
 
-    private static char intToChar(int i) {
-      return (char) ('a' + i);
+    Queue<Node> que = new LinkedList<>();
+    String result = "";
+
+    for (int i = 0; i < N; i++) {
+      if (existedNodes[i] && nodes[i].inDegree == 0) {
+        que.offer(nodes[i]);
+        result += nodes[i].name;
+      }
     }
+
+    while (!que.isEmpty()) {
+      Node currN = que.poll();
+      for (Node node : currN.nexts) {
+        node.inDegree--;
+        if (node.inDegree == 0) {
+          que.offer(node);
+          result += node.name;
+        }
+      }
+    }
+
+    for (Node node : nodes) {
+      if (node.inDegree != 0) {
+        return "";
+      }
+    }
+
+    return result;
+  }
+
+  private char toChar(int i) {
+    return (char) ('a' + i);
+  }
+
+  private int toInt(char c) {
+    return c - 'a';
+  }
+
+  public static void main(String[] args) {
+    Solution solution = new Solution();
+    String[] words = {  "wrt", "wrf", "er", "ett", "rftt"};
+    String result = solution.alienOrder(words);
+    System.out.println(result);
+  }
 }
