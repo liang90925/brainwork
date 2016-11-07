@@ -8,6 +8,8 @@ public class Solution {
     }
     return quickSort(nums, 0, nums.length-1, nums.length - k);
   }
+
+  // quickSelect 是一个 n + n/2 + n/4.... O(2n),平摊下来就是O(N)
   public int quickSelect(int[] nums, int left, int right, int k){
     if(left == right) {
       return nums[left];
@@ -23,6 +25,8 @@ public class Solution {
       return quickSelect(nums, left, position - 1, k);
     }
   }
+
+  // Partition 这部分的复杂度是O(n)
   public int partition(int[] nums, int left, int right) {
     int pivot = nums[left];
     while(left < right) {

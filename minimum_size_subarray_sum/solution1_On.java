@@ -14,7 +14,7 @@ public class Solution {
 				sum -= nums[i];
 			}
 		}
-		
+
 		return result == (len + 1) ? 0 : result;
 	}
 }
