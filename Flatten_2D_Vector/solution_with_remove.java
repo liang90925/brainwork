@@ -49,13 +49,8 @@ public class Vector2D implements Iterator<Integer> {
     colToRemove = colId - 1;
     listToRemove.remove(colToRemove);
 
-
-
     if (listToRemove.isEmpty()) {
       array.remove(listToRemove);
-      if (rowId != 0) {
-        rowId--;
-      }
     }
     colId--;
     System.out.println(array);
