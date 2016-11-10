@@ -11,12 +11,13 @@ For example, given the following matrix:
 1 1 1 1 1
 1 0 0 1 0
 Return 4.
-Credits:
-Special thanks to @Freezen for adding this problem and creating all test cases.
-
 Apple Airbnb Facebook
 
 DP
 referred to:
 https://segmentfault.com/a/1190000003709497
 http://www.jiuzhang.com/solutions/maximal-square/
+
+rolling array的概念把O(N2)的space complexity减少成O(2n)优化了空间复杂度。
+solution就是使用滚动数组的方法减少了空间复杂度。（JZQH5-2/3）
+因为只需要维持两行的状态。类似题目house robber

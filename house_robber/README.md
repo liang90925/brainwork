@@ -12,3 +12,6 @@ referred to : http://buttercola.blogspot.com/2015/11/airbnb-maximum-room-days.ht
 
 other solutions:
 http://www.jiuzhang.com/solutions/house-robber/
+
+rolling array的概念
+类似的二维题目： maximal square

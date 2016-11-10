@@ -1,103 +1,136 @@
-public class Solution {
-  // first implement the TrieNode and Trie
-  class TrieNode {
-    char c;
-    String word;
-    Map<Character, TrieNode> children = new HashMap<>();
-    boolean hasWord;
-    // this constructor is used for dummy root node
-    public TrieNode() {
+import java.util.*;
 
-    }
-    public TrieNode(char c) {
+public class Solution {
+  public static class Node {
+    char c; // 可以省略
+    String w;
+    boolean isW;
+    Map<Character, Node> children = new HashMap<>();
+
+    public Node(){}
+    public Node(char c) {
       this.c = c;
-      this.word = "";
-      this.hasWord = false;
+      this.w = "";
+      this.isW = false;
     }
   }
-  public class Trie {
-    private TrieNode root;
 
-    public Trie() {
-      root = new TrieNode();
+  public static class Trie {
+    private Node root;
+
+    Trie() {
+      root = new Node();
     }
 
-    // insert word into Trie tree
     public void insert(String word) {
-      TrieNode curr = root;
-      Map<Character, TrieNode> children = curr.children;
+      Node curr = root;
+      Map<Character, Node> children = curr.children;
 
       for (int i = 0; i < word.length(); i++) {
-        char wCh = word.charAt(i);
-        if (children.containsKey(wCh)) {
-          curr = children.get(wCh);
+        char wordC = word.charAt(i);
+        if (children.containsKey(wordC)) {
+          curr = children.get(wordC);
         } else {
-          TrieNode tNode = new TrieNode(wCh);
-          children.put(wCh, tNode);
-          curr = tNode;
+          Node newNode = new Node(wordC);
+          children.put(wordC, newNode);
+          curr = newNode;
         }
         children = curr.children;
       }
-      curr.word = word;
-      curr.hasWord = true;
+      curr.w = word;
+      curr.isW = true;
     }
 
-    public boolean searh(String word) {
-      TrieNode curr = root;
-      Map<Character, TrieNode> children = curr.children;
+    // not used in this question
+    public boolean search(String word) {
+      Node curr = root;
+      Map<Character, Node> children = curr.children;
 
       for (int i = 0; i < word.length(); i++) {
-        char wCh = word.charAt(i);
-        if (children.containsKey(wCh)) {
-          curr = children.get(wCh);
+        char wordC = word.charAt(i);
+        if (children.containsKey(wordC)) {
+          curr = children.get(wordC);
         } else {
           return false;
         }
+        children = curr.children;
       }
-      return curr.hasWord;
-    }
-  }
-
-  private int[] row = {1, -1, 0, 0};
-  private int[] col = {0, 0, 1, -1};
-
-  private void search(char[][] board, int i, int j, TrieNode node, List<String> result) {
-    if (node.hasWord && !result.contains(node.word)) {
-      result.add(node.word);
+      return curr.isW;
     }
 
-    if (i < 0 || j < 0 || i >= board.length || j >= board[0].length || board[i][j] == '0' || node == null) {
-      return;
-    }
+    public boolean startWith(String prefix) {
+      Node curr = root;
+      Map<Character, Node> children = curr.children;
 
-    // be careful of the following logic
-    if (node.children.containsKey(board[i][j])) {
-      for (int k = 0; k < 4; k++) {
-        // have a char to record the current board char and set it to 0 to avoid duplicate
-        char now =  board[i][j];
-        board[i][j] = '0';
-        // don't for get to use now and DONOTuse board[i][j]
-        search(board, i + row[k], j + col[k], node.children.get(now), result);
-        board[i][j] = now;
+      for (int i = 0; i < prefix.length(); i++) {
+        char wordC = prefix.charAt(i);
+        if (!children.containsKey(wordC)) {
+          return false;
+        }
+        children = curr.children;
       }
+      return true;
+
     }
   }
 
   public List<String> findWords(char[][] board, String[] words) {
     List<String> result = new ArrayList<>();
+    if (board == null || board.length == 0 || board[0].length == 0 ||
+            words.length == 0) {
+      return result;
+    }
 
-    Trie trie = new Trie();
+    Trie t = new Trie();
 
-    for (String word: words) {
-      trie.insert(word);
+
+    for (String word : words) {
+      t.insert(word);
     }
 
     for (int i = 0; i < board.length; i++) {
-      for (int j = 0; j < board[i].length; j++) {
-        search(board, i, j, trie.root, result);
+      for (int j = 0; j < board[0].length; j++) {
+        search(board, i, j, t.root, result);
       }
     }
-
     return result;
+  }
+
+  private static final int[] ROW = {1, -1, 0, 0};
+  private static final int[] COL = {0, 0, 1, -1};
+
+  private void search(char[][] board, int i, int j, Node curr, List<String> result) {
+    if (curr.isW && !result.contains(curr.w)) {
+      result.add(curr.w);
+    }
+
+    if (i < 0 || i >= board.length ||
+            j < 0 || j >= board[0].length ||
+            curr == null) {
+      return;
+    }
+
+    char currCh = board[i][j];
+    if (curr.children.containsKey(currCh)) {
+      for (int k = 0; k < ROW.length; k++) {
+        board[i][j] = '#';
+        search(board, i + ROW[k], j + COL[k], curr.children.get(currCh), result);
+
+      }
+      board[i][j] = currCh;
+    }
+  }
+
+  public static void main(String[] args) {
+    Solution sl = new Solution();
+
+    char[][] board = {{'o','a','a','n'}, {'e','t','a','e'}, {'i','h','k','r'}, {'i','f','l','v'}};
+    //System.out.println(Arrays.deepToString(board));
+    // NOTE:!!!!!The right way to print a two D array; for loop outter and print to string
+    for (char[] b : board) {
+      System.out.println(Arrays.toString(b));
+    }
+    String[] words = {"oath","pea","eat","rain"};
+    System.out.println(sl.findWords(board, words));
   }
 }
