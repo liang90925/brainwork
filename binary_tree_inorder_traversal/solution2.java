@@ -24,8 +24,8 @@ public class Solution {
     if (root == null) {
       return;
     }
-    recursive(root.left,inOrder);
+    recursive(root.left, inOrder);
     inOrder.add(root.val);
-    recursive(root.right,inOrder);
+    recursive(root.right, inOrder);
   }
 }
