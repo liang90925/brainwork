@@ -15,3 +15,4 @@ Notes: You may assume both pattern and str contains only lowercase letters.
 
 Solution:
 Not sure about the solution yet. little bit difficult
+referred to: https://discuss.leetcode.com/topic/26750/share-my-java-backtracking-solution/2
