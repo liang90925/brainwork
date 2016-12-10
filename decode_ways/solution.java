@@ -2,7 +2,7 @@ import java.util.*;
 
 
 // using dynamic programming
-// 非常容易错，因为corner case比较多， 此solution比较  巧妙地考虑周全了
+// 非常容易错，因为corner case比较多， 此solution比较  巧妙地考虑周全了md
 public class Solution {
   public int numDecodings(String s) {
     if (s == null || s.length() == 0) {

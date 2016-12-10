@@ -10,10 +10,10 @@ public class Solution {
   }
 
   public boolean dfs(String pattern, int pInx, String str, int sInx, Set<String> set, Map<Character, String> map) {
-    if (pInx == pattern.length() && sInx == pattern.length()) {
+    if (pInx == pattern.length() && sInx == str.length()) {
       return true;
     }
-    if (pInx == pattern.length() || sInx == pattern.length()) {
+    if (pInx == pattern.length() || sInx == str.length()) {
       return false;
     }
     char patternC = pattern.charAt(pInx);
