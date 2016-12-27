@@ -10,7 +10,7 @@ import java.util.*;
  * If you need more classes, simply define them inline.
  */
 
-class Solution {
+public class Solution {
   public static void main(String[] args) {
     ArrayList<String> strings = new ArrayList<String>();
     strings.add("Hello, World!");

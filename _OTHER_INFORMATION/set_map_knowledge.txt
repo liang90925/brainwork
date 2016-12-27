@@ -1,0 +1,10 @@
+学习和比较 set/hashset/linkedhashset/hashmap/linkedhashmap 的地方：
+https://github.com/CarpenterLee/JCFInternals/blob/master/markdown/7-LinkedHashSet%20and%20LinkedHashMap.md
+http://www.blogs8.cn/posts/ACNI147
+http://www.codingke.com/v/655-lesson-162-course
+http://www.blogs8.cn/tags/LinkedHashSet
+https://docs.oracle.com/javase/8/docs/api/java/util/LinkedHashSet.html
+
+LinkedHashSet:
+O(1) for the basic operations (add, contains and remove),
+Iteration over a LinkedHashSet requires time proportional to the size of the set, regardless of its capacity.
