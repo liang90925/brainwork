@@ -34,3 +34,9 @@ collection.getRandom();
 Hide Company Tags Yelp
 Hide Tags Array Hash Table Design
 Hide Similar Problems (H) Insert Delete GetRandom O(1)
+
+
+referred to:
+http://www.allenlipeng47.com/blog/index.php/2016/08/15/insert-delete-getrandom-o1-duplicates-allowed/
+http://bookshadow.com/weblog/2016/08/09/leetcode-insert-delete-getrandom-o1-duplicates-allowed/
+http://www.cnblogs.com/grandyang/p/5756148.html
