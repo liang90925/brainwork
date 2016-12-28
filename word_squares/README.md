@@ -70,3 +70,7 @@ created a trie and also for each trieNode, added a new attribute called startedW
 it contains the words that started with string from root to current char;
 
 please also check the solution at:https://discuss.leetcode.com/topic/64770/java-dfs-trie-54-ms-98-so-far/7 which didn't use the startwith extra field and is faster;
+
+others:
+http://www.cnblogs.com/grandyang/p/6006000.html
+http://bookshadow.com/weblog/2016/10/16/leetcode-word-squares/
