@@ -36,6 +36,7 @@ other useful links:
 
 https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/representing-graphs
 https://www.coursera.org/specializations/algorithms?action=enroll
+https://en.wikipedia.org/wiki/Topological_sorting#Algorithms
 
 references:
 https://segmentfault.com/a/1190000003814058

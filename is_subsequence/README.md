@@ -25,4 +25,4 @@ If there are lots of incoming S, say S1, S2, ... , Sk where k >= 1B, and you wan
 Hide Company Tags Pinterest
 Hide Tags Binary Search Dynamic Programming Greedy
 referred to http://www.programcreek.com/2015/09/leetcode-is-subsequence-java/ for solution.java
-referred to https://discuss.leetcode.com/topic/57205/java-only-2ms-much-faster-than-normal-2-pointers for solution2.java which is much faster
+referred to https://discuss.leetcode.com/topic/57205/java-only-2ms-much-faster-than-normal-2-pointers for solution2.java which is much faster.
