@@ -25,3 +25,4 @@ referred to : http://blog.csdn.net/qq508618087/article/details/51743408
 others: https://segmentfault.com/a/1190000005937820
 http://blog.csdn.net/jmspan/article/details/51747784
 http://www.programcreek.com/2014/08/leetcode-nested-list-weight-sum-ii-java/
+http://www.cnblogs.com/grandyang/p/5615583.html
