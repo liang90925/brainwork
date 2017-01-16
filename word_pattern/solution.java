@@ -8,9 +8,11 @@ public class Solution {
 
     for (int i = 0; i < pattern.length(); i++) {
       if (wordMap.containsKey(pattern.charAt(i))) {
-        if (strList[i] != wordMap.get(pattern.charAt(i))) {
+        if (!strList[i].equals(wordMap.get(pattern.charAt(i)))) {
           return false;
         }
+      } else if (wordMap.containsValue(strList[i])){
+          return false;
       } else {
         wordMap.put(pattern.charAt(i), strList[i]);
       }

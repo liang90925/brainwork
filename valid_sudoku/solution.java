@@ -19,7 +19,7 @@ public class Solution {
       }
     }
 
-    // check row;
+    // check col;
     for (int i = 0; i < 9; i++) {
       // for a new col, clean up the visited array
       Arrays.fill(visited, false);

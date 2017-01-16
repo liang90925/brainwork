@@ -12,6 +12,7 @@ public class Solution {
         // this part is very important!!! especially the part to check offset >0 or not
         int offset = str.charAt(i) - str.charAt(i - 1);
         key += offset > 0 ? offset : offset + 26;
+        key += ',';
       }
       if (keyToStrMap.containsKey(key)) {
         keyToStrMap.get(key).add(str);
