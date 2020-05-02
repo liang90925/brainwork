@@ -16,3 +16,4 @@ Hide Similar Problems (M) Design TinyURL
 referred to
 https://discuss.leetcode.com/topic/81669/java-solution-uses-maps-to-store-increasing-id-and-its-base62
 http://www.geeksforgeeks.org/how-to-design-a-tiny-url-or-url-shortener/
+http://blog.csdn.net/liuchonge/article/details/60764394
