@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 /**
  * Definition for an interval.
  * public class Interval {
