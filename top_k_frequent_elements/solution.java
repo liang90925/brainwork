@@ -1,4 +1,7 @@
-public class Solution {
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class solution {
   public List<Integer> topKFrequent(int[] nums, int k) {
     // initiate the map that has key as the number in nums and value as the number occurance.
     Map<Integer, Integer> numMap = new HashMap<>();
