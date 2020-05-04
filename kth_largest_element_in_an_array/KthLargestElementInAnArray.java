@@ -1,4 +1,4 @@
-public class Solution {
+public class KthLargestElementInAnArray {
   public int findKthLargest(int[] nums, int k) {
     if (nums == null || nums.length == 0) {
       return 0;
@@ -6,7 +6,7 @@ public class Solution {
     if (k <= 0) {
       return 0;
     }
-    return quickSort(nums, 0, nums.length-1, nums.length - k);
+    return quickSelect(nums, 0, nums.length-1, nums.length - k);
   }
 
   // quickSelect 是一个 n + n/2 + n/4.... O(2n),平摊下来就是O(N)

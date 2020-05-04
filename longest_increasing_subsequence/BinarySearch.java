@@ -1,4 +1,4 @@
-public class Solution {
+public class BinarySearch {
 
   public int lengthOfLIS(int[] nums) {
     if (nums == null || nums.length == 0) {

@@ -1,5 +1,5 @@
 
-public class Solution {
+class solution {
   public int lengthOfLIS(int[] nums) {
     if (nums == null || nums.length == 0) {
       return 0;
@@ -11,7 +11,7 @@ public class Solution {
 
     for (int i = 0; i < nums.length; i++) {
       // init dp[i] here can be simpler
-      dp[i] = 1
+      dp[i] = 1;
       for (int j = 0; j < i; j++) {
         // 注意这里的条件
         if (nums[i] > nums[j]) {

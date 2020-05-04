@@ -16,6 +16,13 @@ public class solution {
       }
     );
 
+    List<int[]> test = new ArrayList<>();
+    List<int[]> intlist = Collections.sort(test, new Comparator<int[]>() {
+      @Override
+      public int compare(int[] o1, int[] o2) {
+        return 0;
+      }
+    });
     // pre check for input.
     List<Integer> result = new ArrayList<>();
     if (nums == null || nums.length == 0) {
