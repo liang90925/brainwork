@@ -1,38 +1,28 @@
-973. K Closest Points to Origin
-Medium
+https://www.lintcode.com/problem/stone-game/description?_from=ladder&&fromId=160
 
-We have a list of points on the plane.  Find the K closest points to the origin (0, 0).
-(Here, the distance between two points on a plane is the Euclidean distance.)
-You may return the answer in any order.  The answer is guaranteed to be unique (except for the order that it is in.
 
+Description
+中文
+English
+There is a stone game.At the beginning of the game the player picks n piles of stones in a line.
+
+The goal is to merge the stones in one pile observing the following rules:
+
+At each step of the game,the player can merge two adjacent piles to a new pile.
+The score is the number of stones in the new pile.
+You are to determine the minimum of the total score.
+
+Have you met this question in a real interview?  
+Example
 Example 1:
-Input: points = [[1,3],[-2,2]], K = 1
-Output: [[-2,2]]
-Explanation: 
-The distance between (1, 3) and the origin is sqrt(10).
-The distance between (-2, 2) and the origin is sqrt(8).
-Since sqrt(8) < sqrt(10), (-2, 2) is closer to the origin.
-We only want the closest K = 1 points from the origin, so the answer is just [[-2,2]].
+
+Input: [3, 4, 3]
+Output: 17
 Example 2:
 
-Input: points = [[3,3],[5,-1],[-2,4]], K = 2
-Output: [[3,3],[-2,4]]
-(The answer [[-2,4],[3,3]] would also be accepted.)
-
-Note:
-1 <= K <= points.length <= 10000
--10000 < points[i][0] < 10000
--10000 < points[i][1] < 10000
-
-0 ~ 6 months
-Facebook 82
-Amazon 37
-Asana 3
-Oracle 3
-Apple 2
-Uber 2
-
-Similar questions:
-Kth Largest Element in an Array
-Top K Frequent Elements
-Top K Frequent Words
+Input: [4, 1, 1, 4]
+Output: 18
+Explanation:
+  1. Merge second and third piles => [4, 2, 4], score = 2
+  2. Merge the first two piles => [6, 4]，score = 8
+  3. Merge the last two piles => [10], score = 18
