@@ -10,15 +10,14 @@ public class Fibonacci_II {
        if (n <= 0) {
             return 0;
         }
-
-        int[][] lastMatrix = matrixHelper(n);
-        int Fn = lastMatrix[0][1];
-        String fnStr = String.valueOf(Fn);
-        return fnStr.length() <= DIGIT
-                ? Integer.parseInt(fnStr)
-                : Integer.parseInt(String.valueOf(Fn).substring(fnStr.length() - DIGIT));
-
+       if (n == 1) {
+           return 1;
+       }
+       int[][] lastMatrix = matrixHelper(n - 1);
+       int Fn = lastMatrix[0][0];
+       return Fn % MOD;
     }
+
     private int[][] matrixHelper(int n) {
         if (n == 2) {
             return matrixMultiplexer(MATRIX, MATRIX);
@@ -36,12 +35,28 @@ public class Fibonacci_II {
         }
     }
 
+//    private int[][] matrixMultiplexer(int[][] matrix1, int[][] matrix2) {
+//        int[][] result = new int[2][2];
+//        result[0][0] = (matrix1[0][0] * matrix2[0][0] + matrix1[0][1]*matrix2[1][0]) % MOD;
+//        result[0][1] = (matrix1[0][0] * matrix2[0][1] + matrix1[0][1]*matrix2[1][1]) % MOD;
+//        result[1][0] = (matrix1[1][0] * matrix2[0][0] + matrix1[1][1]*matrix2[1][0]) % MOD;
+//        result[1][1] = (matrix1[1][0] * matrix2[0][1] + matrix1[1][1]*matrix2[1][1]) % MOD;
+//        return result;
+//    }
+
     private int[][] matrixMultiplexer(int[][] matrix1, int[][] matrix2) {
-        int[][] result = new int[2][2];
-        result[0][0] = (matrix1[0][0] * matrix2[0][0] + matrix1[0][1]*matrix2[1][0]) % MOD;
-        result[0][1] = (matrix1[0][0] * matrix2[0][1] + matrix1[0][1]*matrix2[1][1]) % MOD;
-        result[1][0] = (matrix1[1][0] * matrix2[0][0] + matrix1[1][1]*matrix2[1][0]) % MOD;
-        result[1][1] = (matrix1[1][0] * matrix2[0][1] + matrix1[1][1]*matrix2[1][1]) % MOD;
+        int matrix1Row = matrix1.length;
+        int matrix1Col = matrix1[0].length;
+        int matrix2Col = matrix2[0].length;
+        int[][] result = new int[matrix1Row][matrix2Col];
+
+        for (int i = 0; i <matrix1Row; i++) {
+            for (int j = 0; j < matrix2Col; j++) {
+                for (int k = 0; k < matrix1Col; k++) {
+                    result[i][j] += (matrix1[i][k] * matrix2[k][j]) % MOD;
+                }
+            }
+        }
         return result;
     }
 
