@@ -1,4 +1,6 @@
-public class Solution {
+import java.util.*;
+
+public class CourseScheduleII {
   class Node {
     Set<Integer> children;
     int inDegree;
