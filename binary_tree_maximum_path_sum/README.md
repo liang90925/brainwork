@@ -20,3 +20,8 @@ Hide Tags Tree Depth-first Search
 Hide Similar Problems (E) Path Sum (M) Sum Root to Leaf Numbers
 
 referred to : http://www.jiuzhang.com/solutions/binary-tree-maximum-path-sum/
+https://www.jiuzhang.com/solution/binary-tree-maximum-path-sum/#tag-highlight-lang-java
+最主要的是要搞清楚 在一个root点 什么样的情况下才是最大的
+chose between
+<maxPathLeft, maxPathRight, maxSinglePathLeft + maxSingelPathRight + root.val>
+maxSinglePath = < <leftsinglePath, rightSinglePath> + root.val, 0  > since singlePath does not need to contain  anything
