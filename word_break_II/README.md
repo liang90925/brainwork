@@ -18,3 +18,5 @@ Hide Tags Dynamic Programming Backtracking
 
 referred to : http://www.jiuzhang.com/solutions/word-break-ii/ version 1
 if have time, try the version 2
+
+https://www.lintcode.com/problem/word-break-ii/description

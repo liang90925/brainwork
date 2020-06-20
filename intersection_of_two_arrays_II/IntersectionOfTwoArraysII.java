@@ -1,5 +1,10 @@
-public class Solution {
-  public int[] intersect(int[] nums1, int[] nums2) {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class IntersectionOfTwoArraysII {
+  public int[] intersection(int[] nums1, int[] nums2) {
     Map<Integer, Integer> nums1Map = new HashMap<>();
 
     for (int i = 0; i < nums1.length; i++) {

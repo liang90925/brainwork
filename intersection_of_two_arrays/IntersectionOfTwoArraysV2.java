@@ -1,6 +1,8 @@
 //sort and merge
 
-public class Solution {
+import java.util.Arrays;
+
+public class IntersectionOfTwoArraysV2 {
     public int[] intersection(int[] nums1, int[] nums2) {
       Arrays.sort(nums1);
       Arrays.sort(nums2);

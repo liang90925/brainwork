@@ -2,7 +2,7 @@ import java.util.*;
 // still use the DFS to go through all  combinations, but can build boolean arrays to faciliate it
 // so that we can skip many impossible combinations.
 
-public class Solution {
+public class WordBreakII {
   public List<String> wordBreak(String s, Set<String> wordDict) {
     // build an two D array to store whether s.substring(i,j) is a word in wordDict; (a top right half triangle two d array)
     // build another one D array to store whether start from i of the s, it is possible to find combinations of words in wordDict.

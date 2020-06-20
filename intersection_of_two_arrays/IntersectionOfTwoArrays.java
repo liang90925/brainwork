@@ -1,6 +1,9 @@
 //using two set
 
-public class Solution {
+import java.util.HashSet;
+import java.util.Set;
+
+public class IntersectionOfTwoArrays {
     public int[] intersection(int[] nums1, int[] nums2) {
 
       Set<Integer> nums1Set = new HashSet<>();
