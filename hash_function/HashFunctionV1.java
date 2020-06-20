@@ -1,4 +1,4 @@
-public class HashFunction {
+public class HashFunctionV1 {
     /**
      * @param key: A string you should hash
      * @param HASH_SIZE: An integer
@@ -16,7 +16,7 @@ public class HashFunction {
     }
 
     public static void main(String[] args) {
-        HashFunction solution= new HashFunction();
+        HashFunctionV1 solution= new HashFunctionV1();
         System.out.println(solution.hashCode("ubuntu".toCharArray(), 1007));
         System.out.println(solution.hashCode("abcdefghijklmnopqrstuvwxyz".toCharArray(), 2607));
     }
