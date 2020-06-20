@@ -1,3 +1,7 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 class TrieNode {
   char c;
   Map<Character, TrieNode> children = new HashMap<>();
@@ -42,19 +46,13 @@ public class Trie {
   public boolean search(String word) {
     if (searchWordNodePos(word) == null) {
       return false;
-    } else if (searchWordNodePos(word).hasWord) {
-      return true;
-    }
-    return false;
+    } else return Objects.requireNonNull(searchWordNodePos(word)).hasWord;
   }
 
   // Returns if there is any word in the trie
   // that starts with the given prefix.
   public boolean startsWith(String prefix) {
-    if (searchWordNodePos(prefix) != null) {
-      return true;
-    }
-    return false;
+    return searchWordNodePos(prefix) != null;
   }
 
   private TrieNode searchWordNodePos(String s) {
