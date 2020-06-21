@@ -1,3 +1,6 @@
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -6,18 +9,23 @@
  *     ListNode(int x) { val = x; }
  * }
  */
-public class Solution {
-  private Comparator<ListNode> listNodeComparator = new Comparator<ListNode>() {
-    public int compare(ListNode ln1, ListNode ln2) {
-      if (ln1 == null) {
-        return 1;
-      }
-      if (ln2 == null) {
-        return -1;
-      }
-      return ln1.val - ln2.val;
+public class MergeKSortedListsHeap {
+  public class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int x) { val = x; }
+  }
+
+  private Comparator<ListNode> listNodeComparator = (ln1, ln2) -> {
+    if (ln1 == null) {
+      return 1;
     }
+    if (ln2 == null) {
+      return -1;
+    }
+    return ln1.val - ln2.val;
   };
+
   public ListNode mergeKLists(ListNode[] lists) {
     if (lists == null || lists.length == 0) {
       return null;

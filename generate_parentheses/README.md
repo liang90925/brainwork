@@ -1,3 +1,5 @@
+https://www.lintcode.com/problem/generate-parentheses/
+
 22. Generate Parentheses
 
 Difficulty: Medium
@@ -24,3 +26,5 @@ recursive solution
 other :
 http://www.cnblogs.com/springfor/p/3886559.html
 http://bangbingsyb.blogspot.com/2014/11/leetcode-generate-parentheses.html
+
+https://www.jiuzhang.com/solution/generate-parentheses/
