@@ -1,4 +1,5 @@
 23. Merge k Sorted Lists  (非常好的一题)
+https://www.lintcode.com/problem/merge-k-sorted-lists
 
 Difficulty: Hard
 Contributors: Admin
@@ -20,6 +21,8 @@ space complexity: O(k)
  referred: http://blog.csdn.net/linhuanmars/article/details/19899259
  time complexity: O(nklogk)
  space complexity: O(k)
+
+https://www.jiuzhang.com/solution/merge-k-sorted-lists/#tag-highlight-lang-java
 
 others:
 http://www.cnblogs.com/springfor/p/3869217.html

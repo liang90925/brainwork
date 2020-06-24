@@ -1,5 +1,5 @@
 
-class solution {
+class LongestIncreasingSubSequenceDp {
   public int lengthOfLIS(int[] nums) {
     if (nums == null || nums.length == 0) {
       return 0;

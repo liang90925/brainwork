@@ -33,6 +33,8 @@ public class MergeKSortedListsHeap {
 
     PriorityQueue<ListNode> pQue = new PriorityQueue<>(lists.length, listNodeComparator);
 
+    PriorityQueue<ListNode> pq = new PriorityQueue<>(Comparator.comparingInt(node -> node.val));
+
     for (int i = 0; i < lists.length; i++) {
       if (lists[i] != null) {
         pQue.offer(lists[i]);

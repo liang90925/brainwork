@@ -1,5 +1,6 @@
 300. Longest Increasing Subsequence
 https://leetcode.com/problems/longest-increasing-subsequence/
+https://www.lintcode.com/problem/longest-increasing-subsequence/
 
 Difficulty: Medium
 Contributors: Admin
@@ -20,3 +21,4 @@ Hide Similar Problems (M) Increasing Triplet Subsequence (H) Russian Doll Envelo
 referred to :http://www.jiuzhang.com/solutions/longest-increasing-subsequence/
 
 the binary search version has time complexity O(nlogn)
+https://www.jiuzhang.com/solution/longest-increasing-subsequence/#tag-highlight-lang-java

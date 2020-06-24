@@ -4,19 +4,19 @@
 // time complexity:  O(n)
 // space complexity: O(1)
 
-public class Solution {
+public class maximumSubArrayGreedy {
   public int maxSubArray(int[] nums) {
     if (nums == null || nums.length == 0) {
       return 0;
     }
 
-    int sum = Integer.MIN_VALUE;
+    int sum = 0;
     int max = Integer.MIN_VALUE;
     int len = nums.length;
 
     for (int i = 0; i < len; i++) {
       sum += nums[i];
-      max = Math.sum(sum, max);
+      max = Math.max(sum, max);
       sum = Math.max(sum, 0);
     }
 

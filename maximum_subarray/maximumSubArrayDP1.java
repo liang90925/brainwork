@@ -5,7 +5,7 @@
 // space complexity: O(n)
 
 
-public class Solution {
+public class maximumSubArrayDP1 {
   public int maxSubArray(int[] nums) {
     if (nums == null || nums.length == 0) {
       return 0;

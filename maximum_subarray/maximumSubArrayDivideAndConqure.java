@@ -4,7 +4,7 @@
 // the max is between, left , right and cross, note how to cal the cross!
 // Note the function getCrossMax
 
-public class Solution {
+public class maximumSubArrayDivideAndConqure {
   public int maxSubArray(int[] nums) {
     if (nums == null || nums.length == 0) {
       return 0;

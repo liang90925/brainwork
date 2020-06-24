@@ -1,5 +1,6 @@
 97. Interleaving String  
 https://leetcode.com/problems/interleaving-string/
+https://www.lintcode.com/problem/interleaving-string
 
 Difficulty: Hard
 Contributors: Admin
@@ -20,3 +21,5 @@ referred to : http://www.jiuzhang.com/solutions/interleaving-string/
 
 can also check the recursive version here at: http://blog.csdn.net/u011095253/article/details/9248073
 it also has explanation of the dp part
+
+https://www.jiuzhang.com/solution/interleaving-string/

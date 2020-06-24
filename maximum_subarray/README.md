@@ -20,3 +20,5 @@ http://emn178.pixnet.net/blog/post/88907691-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F
 
 other :
 http://fisherlei.blogspot.com/2012/12/leetcode-maximum-subarray.html
+https://www.jiuzhang.com/solution/maximum-subarray/#tag-highlight-lang-java
+divide and conquire, dp , greedy 的思想都很好
