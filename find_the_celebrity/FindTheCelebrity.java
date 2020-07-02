@@ -16,7 +16,6 @@ public class FindTheCelebrity extends Relation {
     public int findCelebrity(int n) {
         // Write your code here
         int celebrity = 0;
-        Set<Integer> notCelebrity = new HashSet<>();
         for (int i = 1; i < n; i++) {
             // when ppl knows i, that means i has the potential to be the celebrity
             if (knows(celebrity, i)) {

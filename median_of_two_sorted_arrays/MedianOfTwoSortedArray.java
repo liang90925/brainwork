@@ -1,4 +1,4 @@
-public class Solution {
+public class MedianOfTwoSortedArray {
   public double findMedianSortedArrays(int[] nums1, int[] nums2) {
     int total_length = nums1.length + nums2.length;
     if (total_length % 2 == 1) {

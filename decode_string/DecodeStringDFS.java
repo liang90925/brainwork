@@ -1,4 +1,4 @@
-public class Solution {
+public class DecodeStringDfs {
   public String decodeString(String s) {
     if (s == null || s.length() == 0) {
       return "";
