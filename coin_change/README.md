@@ -18,5 +18,7 @@ You may assume that you have an infinite number of each kind of coin.
 
 Hide Tags Dynamic Programming
 终于自己做出来一道题目。。。。看来只能标为easy 啊
+4年后的你并没有做出来。。。。
 
+https://leetcode.com/problems/coin-change/solution/
 可以参照combination sum iv 和https://www.hrwhisper.me/leetcode-coin-change/
