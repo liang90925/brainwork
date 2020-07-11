@@ -1,12 +1,13 @@
-import com.apple.eawt.AppEvent;
-
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
-public class WebLogger {
-    private Map<Integer, Integer> map = new HashMap<>();
-    private int count = 0;
-    public WebLogger() {
+public class WebLoggerBetter {
+    private static final int FIVE_MINS = 300;
+    private int[] time = new int[FIVE_MINS];
+    private int[] cnt = new int[FIVE_MINS];
+
+    public WebLoggerBetter() {
         // do intialization if necessary
     }
 
@@ -15,13 +16,13 @@ public class WebLogger {
      * @return: nothing
      */
     public void hit(int timestamp) {
-        // write your code here
-        if (map.containsKey(timestamp)) {
-            map.put(timestamp, map.get(timestamp) + 1);
+        int t = timestamp % FIVE_MINS;
+        if (time[t] != timestamp) {
+            time[t] = timestamp;
+            cnt[t] = 1;
         } else {
-            map.put(timestamp, 1);
+            cnt[t]++;
         }
-
     }
 
     /*
@@ -29,25 +30,17 @@ public class WebLogger {
      * @return: An integer
      */
     public int get_hit_count_in_last_5_minutes(int timestamp) {
-        // write your code here
         int total = 0;
-        int prevTimestamp = timestamp - 300 + 1;
-        prevTimestamp = Math.max(1, prevTimestamp);
-
-        for (int i = prevTimestamp; i <= timestamp; i++) {
-            if (map.containsKey(i)) {
-                total += map.get(i);
+        for (int i = 0; i < FIVE_MINS; i++) {
+            if (timestamp - time[i] < FIVE_MINS) {
+                total += cnt[i];
             }
-        }
-        // remove the keys outside of past 5 mins
-        for (int i = 1; i < prevTimestamp; i++) {
-            map.remove(i);
         }
         return total;
     }
 
     public static void main(String[] args) {
-        WebLogger webLogger = new WebLogger();
+        WebLoggerBetter webLogger = new WebLoggerBetter();
 
         webLogger.hit(1);
         webLogger.hit(2);
@@ -57,7 +50,7 @@ public class WebLogger {
         System.out.println(webLogger.get_hit_count_in_last_5_minutes(301));
 
         System.out.println("=========================");
-        WebLogger webLogger1 = new WebLogger();
+        WebLoggerBetter webLogger1 = new WebLoggerBetter();
 
         webLogger1.hit(1);
         webLogger1.hit(1);

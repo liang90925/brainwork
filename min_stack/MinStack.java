@@ -1,10 +1,12 @@
+import java.util.Stack;
+
 public class MinStack {
     private Stack<Integer> stack;
     private Stack<Integer> minStack;
     /** initialize your data structure here. */
     public MinStack() {
-      stack = new Stack<Integer>();
-      minStack = new Stack<Integer>();
+      stack = new Stack<>();
+      minStack = new Stack<>();
     }
 
     public void push(int x) {

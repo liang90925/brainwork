@@ -1,4 +1,4 @@
-
+// This is the best solution
 public class HitCounter {
 
   // two int array to store timestamp and hitcount at the timestamp

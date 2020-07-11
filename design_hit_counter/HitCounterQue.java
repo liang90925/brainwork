@@ -1,10 +1,12 @@
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class HitCounter {
+public class HitCounterQue {
 
   Queue<Integer> tsQue;
 
   /** Initialize your data structure here. */
-  public HitCounter() {
+  public HitCounterQue() {
     tsQue = new LinkedList<>();
   }
 
@@ -19,6 +21,7 @@ public class HitCounter {
     @param timestamp - The current timestamp (in seconds granularity).
   */
   public int getHits(int timestamp) {
+    // Pop all the stored timestamp when it's over 5 mins
     while (!tsQue.isEmpty() && (timestamp - tsQue.peek()) >= 300) {
       tsQue.poll();
     }
@@ -26,6 +29,7 @@ public class HitCounter {
   }
 }
 
+// This solution won't be good if there are so many counts at one timestamp. the que will need to store a lot of similar timestamps
 /**
  * Your HitCounter object will be instantiated and called as such:
  * HitCounter obj = new HitCounter();
