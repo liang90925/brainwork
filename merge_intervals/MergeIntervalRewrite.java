@@ -23,6 +23,8 @@ import java.util.stream.Collectors;
      if (intervals == null || intervals.isEmpty()) {
        return intervals;
      }
+     int[][] intervalsdsf = new int[2][2];
+     Arrays.sort(intervalsdsf, Comparator.comparingInt(a -> a[0]));
      // sort intervals according to the start time
      intervals.sort(Comparator.comparingInt(a -> a.start));
 

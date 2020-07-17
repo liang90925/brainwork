@@ -1,0 +1,106 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+// Description
+// Google Calendar, Outlook, iCal has been banned from your company! So an intrepid engineer has decided to roll their own implementation. Unfortunately one major missing feature is the ability to find out what time slots are free for a particular individual.
+
+// Given a list of time blocks where a particular person is already booked/busy, a start and end time to search between, a minimum duration to search for, find all the blocks of time that a person is free for a potential meeting that will last the aforementioned duration.
+
+// Given: start_time, end_time, duration, meetings_list -> suggested_meeting_times
+
+// Let's assume we abstract the representation of times as simple integers, so a valid time is any valid integer supported by your environment. Here is an example input:
+
+// meetings_list: [3,20], [-2, 0], [0,2], [16,17], [19,23], [30,40], [27, 33]
+// start_time: -5
+// end_time: 27
+// min_duration: 2
+
+// expected answer:
+// free_time: [-5, -2], [23,27]
+
+// [-2, 0], [0, 2], [3, 20], [16, 17], [19, 23], [27, 33], [30, 40]
+// [-2, 2], [3, 23], [27, 33]
+// [-5, -2], [2, 3], [23, 27]
+// [-5, -2], [23, 27]
+
+// Feel free to represent the meetings however you would like, i.e. List of Lists, Lists of Objects etc.
+
+public class Solution {
+
+    static int addNumbers(int a, int b) {
+      	return a+b;
+   }
+
+    public List<int[]> getFreeTime(int[][] meetings, int start, int end, int dur) {
+        if (meetings == null || meetings.length == 0) {
+            return Collections.emptyList();
+        }
+
+        Arrays.sort(meetings, (a, b) -> a[0] - b[0]);
+        // [-2, 0], [0, 2], [3, 20], [16, 17], [19, 23], [27, 33], [30, 40]
+
+        List<int[]> merged = new ArrayList<>();
+        int[] prev = meetings[0]; // [-2, 0]
+
+        // Merge the meetings
+        for (int i = 1; i < meetings.length; i++) {
+            if (meetings[i][0] > end) {
+                break;
+            }
+            if (meetings[i][0] <= prev[1]) {
+                prev = new int[]{prev[0], Math.max(prev[1], meetings[i][1])}; // [-2, 2], [3, 20], [3, 23]
+            } else {
+                merged.add(prev); // [-2, 2], [3, 23]
+                prev = meetings[i]; //[3, 20], [27, 33]
+            }
+        }
+        merged.add(prev); // [-2, 2], [3, 23], [27, 33]
+
+        List<int[]> free = new ArrayList<>();
+        // Invert the meetings to free time
+        for (int[] used: merged) {
+            // [..1] [3]
+            if (used[0] - start >= dur) {
+                free.add(new int[]{start, used[0]}); // [-5, -2], [23, 27]
+            }
+            start = Math.max(start, used[1]); //3, 23, 33
+        }
+
+        int[] last = merged.get(merged.size() - 1);
+        if (end - last[1] >= dur) {
+            free.add(new int[]{last[1], end});
+        }
+
+        return free;
+    }
+
+ public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[][] meetings = new int[][]{
+            {3,20}, {-2, 0}, {0,2}, {16,17}, {19,23}, {30,40}, {27, 33}
+        };
+        // List<int[]> result = solution.getFreeTime(meetings, -5, 27, 3);
+
+        // List<int[]> result = solution.getFreeTime(meetings, -5, 27, 4);
+        List<int[]> result = solution.getFreeTime(meetings, -5, 50, 6);
+
+
+        for(int[] interval: result) {
+            System.out.println(Arrays.toString(interval));
+        }
+
+
+        Scanner in = new Scanner(System.in);
+        int a;
+        a = in.nextInt();
+        int b;
+        b = in.nextInt();
+        int sum;
+
+        sum = addNumbers(a, b);
+        // System.out.println(sum);
+   }
+}

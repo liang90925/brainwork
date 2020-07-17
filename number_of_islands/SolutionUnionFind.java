@@ -1,4 +1,4 @@
-public class Solution {
+public class SolutionUnionFind {
 
   public class UnionFind {
     private int[] root;

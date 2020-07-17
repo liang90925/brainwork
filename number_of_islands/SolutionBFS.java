@@ -1,4 +1,7 @@
-public class Solution {
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class SolutionBFS {
   private int row, col;
 
   public int numIslands(char[][] grid) {

@@ -1,4 +1,4 @@
-public class Solution {
+public class SolutionDFS {
 
   private int row, col;
   private void dfs(boolean[][] visited, int x, int y) {
