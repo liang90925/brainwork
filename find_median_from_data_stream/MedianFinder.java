@@ -2,6 +2,13 @@
 // use priority queue
 // time complexity: addNum -> O(log(n)); getMedian -> O(1)
 
+import java.util.Collections;
+import java.util.PriorityQueue;
+
+
+// Time complexity O(5*Log(n)) + O(1) At worst case, there are three heap insertions and two heap deletions.
+// Space Complexity O(n) linear space to hold input in containers
+
 public class MedianFinder {
   // maxHeap stores the lower half with highest value at top;
   // and the size of it will be equal to minHeap or 1 size larger

@@ -1,0 +1,119 @@
+Describe how a HashMap or hash table works.
+
+ 0123
+|----|
+ abcd
+
+hash(a) = some number % 4 = 0
+hash(b) = some number % 4 = 1
+%8
+
+ 01234567
+|--------|
+ a    b
+
+
+
+Map map = new HashMap();
+
+for (int i = 0; i < 100000; i++)
+    map.put(i, i);
+
+- has 4 buckets (table is size 4)
+- does not resize
+- handles collisions using linked list
+
+time (latency)
+|
+|
+|
+|        ----
+|    ----
+|----
+|__________________ puts
+ pppppppppppppppppp
+ 0123456789...
+
+
+
+
+
+
+Map map = new HashMap();
+
+for (int i = 0; i < 100000; i++)
+    map.put(i, i);
+
+- starts with 2 buckets
+- does resize by 2x when load factor == 1 (# entries == # buckets)
+- handles collisions using linked list
+
+time (latency)
+|
+|   -
+|   -
+| - -
+| - -   -
+|--------
+|__________________ puts
+ pppppppppppppppppp
+ 0123456789...
+
+time (latency)
+|
+|
+|
+|
+|
+|--------
+|__________________ puts
+ pppppppppppppppppp
+ 0123456789...
+
+
+
+
+time (latency)
+|
+|
+|       O(n)
+|       -
+|       -
+|   -   -
+| - -   - -----> 2 constant
+|-------------> 1 constant
+|__________________ puts
+ pppppppppppppppppp
+ 0123456789...
+
+
+
+|----|
+ a cd
+
+|--------|
+ e   a
+ f   b
+
+
+|---------------|
+
+
+|----------------|
+ abcd
+
+
+|---------------|
+ abcd
+
+|--------|
+ab    cd
+
+
+
+
+    b
+ |--a-----|
+ |----b---|
+
+

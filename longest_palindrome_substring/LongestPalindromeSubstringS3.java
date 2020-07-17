@@ -2,7 +2,7 @@
 // refer to https://segmentfault.com/a/1190000002991199
 // https://www.felix021.com/blog/read.php?2040
 
-public class Solution {
+public class LongestPalindromeSubstringS3 {
   public String longestPalindrome(String s) {
     if (s == null || s.length() == 0) {
       return s;

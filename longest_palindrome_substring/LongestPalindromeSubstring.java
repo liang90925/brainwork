@@ -1,6 +1,6 @@
 // time and space complexity: 0(n^2)
 
-public class Solution {
+public class LongestPalindromeSubstring {
   public String longestPalindrome(String s) {
     if (s == null || s.length() <= 0) {
       return s;

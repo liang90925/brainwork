@@ -1,3 +1,6 @@
+
+https://leetcode.com/problems/word-search-ii/
+
 212. Word Search II  
 
 Difficulty: Hard
@@ -28,3 +31,4 @@ If the current candidate does not exist in all words' prefix, you could stop bac
 Microsoft Google Airbnb
 
 referred to : http://www.jiuzhang.com/solutions/word-search-ii/
+https://leetcode.com/problems/word-search-ii/solution/

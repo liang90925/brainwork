@@ -1,3 +1,6 @@
+https://leetcode.com/problems/longest-palindromic-substring/
+
+
 5. Longest Palindromic Substring Add to List
 
 Difficulty: Medium
@@ -27,3 +30,7 @@ solution3 is Manacher Algorithm, a bit hard to understand
 
 jiuzhang 的一个 Manacher Algorithm解法， 有点难理解
 http://www.jiuzhang.com/solutions/longest-palindromic-substring/
+TODO: Learn about this Manacher's Algorithm
+https://en.wikipedia.org/wiki/Longest_palindromic_substring#Manacher's_algorithm
+
+

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Solution {
+public class WordSearchII {
   public static class Node {
     char c; // 可以省略
     String w;
@@ -122,7 +122,7 @@ public class Solution {
   }
 
   public static void main(String[] args) {
-    Solution sl = new Solution();
+    WordSearchII sl = new WordSearchII();
 
     char[][] board = {{'o','a','a','n'}, {'e','t','a','e'}, {'i','h','k','r'}, {'i','f','l','v'}};
     //System.out.println(Arrays.deepToString(board));

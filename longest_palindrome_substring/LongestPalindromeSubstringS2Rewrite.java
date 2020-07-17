@@ -1,4 +1,6 @@
-public class Solution {
+// O(n^2) TIME complexity O(1) SPACE complexity , better thant the dp version
+
+public class LongestPalindromeSubstringS2Rewrite {
   public String longestPalindrome(String s) {
     if (s == null || s.length() <= 0) {
       return s;
