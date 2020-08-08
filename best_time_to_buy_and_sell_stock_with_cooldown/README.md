@@ -26,3 +26,6 @@ https://soulmachine.gitbooks.io/algorithm-essentials/content/java/dp/best-time-t
 
 https://roy3221.gitbooks.io/algorithms/content/CH5%20DP/leetcode_309_best_time_to_buy_and_sell_stock_with_.html
 http://www.cnblogs.com/grandyang/p/4997417.html
+
+Should read this for a better undertanding of all those stock sell buy problem
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/discuss/75924/Most-consistent-ways-of-dealing-with-the-series-of-stock-problems

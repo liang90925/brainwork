@@ -1,4 +1,6 @@
-public class Solution {
+import java.util.Stack;
+
+public class BasicCalculator {
   public int calculate(String s) {
     if (s == null || s.isEmpty()) {
       return 0;

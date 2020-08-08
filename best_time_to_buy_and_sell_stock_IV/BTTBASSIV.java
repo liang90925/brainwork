@@ -1,6 +1,6 @@
 //2D array
 
-public class Solution {
+public class BTTBASSIV {
   public int maxProfit(int k, int[] prices) {
     if (prices == null || prices.length < 0 || k <= 0) {
       return 0;

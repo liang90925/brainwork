@@ -23,3 +23,6 @@ Hide Similar Problems (M) Maximum Subarray (M) Best Time to Buy and Sell Stock I
 can refer to http://liangjiabin.com/blog/2015/04/leetcode-best-time-to-buy-and-sell-stock.html
 http://buttercola.blogspot.com/2016/01/leetcode-best-time-to-buy-and-sell.html
 O(n)时间，O(1)空间。
+
+Should read this for a better undertanding of all those stock sell buy problem
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/discuss/75924/Most-consistent-ways-of-dealing-with-the-series-of-stock-problems

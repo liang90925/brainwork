@@ -1,0 +1,171 @@
+
+/*
+
+Challenge Prompt: Build an XML parser.
+
+What is an XML?
+
+<a>
+  <b>
+    <c>foo</c>
+    <c></c>
+  </b>
+  <d>blah</d>
+</a>
+
+For this exercise, our version of XML is heavily simplified. It only has
+1) elements  <a></a>. <d></d>
+2) values : foo, blah
+3) there's one and only root element.
+4) given xml is alway valid and full.
+
+we do not have attributes : <a href=""></a>
+
+----
+
+You are given the entire XML in String.
+And you are providing a library to parse the XML, and return the parsed format,
+in whatever ways you believe will help the client to use the parsed XML.
+
+interface Tokenizer {
+  Tokenizer(String xml);
+
+  Token nextToken();
+}
+
+tokenizer is given to you, and it tokenizes XMLs coming in as string, and parses into a tokenizable block.
+
+interface Token {
+  String value();
+  TokenType type();
+}
+
+enum TokenType {
+  BEGIN,
+  END,
+  TEXT,
+}
+
+xml = "
+<a>
+  <b>
+    <c>foo</c>
+    <c></c>
+  </b>
+  <d>blah</d>
+</a>";
+
+
+valid XML:
+<a>food</a>
+<a>
+  <b>foo</b>
+  <b></b>
+</a>
+
+invalid XML:
+<a>food<b></b></a>
+
+so elements can only have either a value or children.
+
+[code]
+
+  Tokenizer t = new Tokenizer(xml);
+  Token a = t.nextToken(); // Token { type : {BEGIN}, value: "a" }
+  Token b =  t.nextToken();  // Token { type : {BEGIN}, value: "b" }
+  Token c =  t.nextToken();  // Token { type : {BEGIN}, value: "c" }
+ t.nextToken();  // Token { type : {TEXT}, value: "foo" }
+ // Token { type : {END}, value: "c" }
+ ...
+  // Token { type : {END}, value: "a" }
+ nextToken() --> null;
+
+[/code]
+
+
+
+import Tokenizer;
+import Token;
+
+interface XmlParser {
+  public ParsedXml parse(String xml) // todo
+}
+
+interface ParsedXml {
+// todo
+}
+
+*/
+
+public class Solution {
+  interface Token {
+    String value();
+    TokenType type();
+  }
+
+  enum TokenType {
+    BEGIN,
+    END,
+    TEXT,
+  }
+
+  enum Type {
+    ELEMENT,
+    TEXT
+  }
+
+  public interface raw {
+    String value;
+  }
+  public class Element implements raw {
+
+    List<Element> elements;
+  }
+
+  public class Content implements raw {
+
+  }
+
+  public class ParsedXML {
+    Element ele;
+    List<Raw> childrens;
+  }
+
+
+  /*
+  <a>
+   <b>foo</b>
+   <b></b>
+  </a>
+
+  <a>foo</a>
+
+  Element { value : a, children: [ Cotent: { "foo" } ] }
+
+
+   </a>
+   e2
+   e1     e1
+   <a>  , e2   e0(e1, e2)
+  */
+  public Raw parse(String xml) {
+    Tokenizer t = new Tokenizer(xml);
+
+    Stack<Token> stk = new Stack<>();
+    while (t.nextToken() != null) {
+      Token a = t.nextToken();
+      if (a.TokenType != TokenType.END) {
+        stk.push(token);
+
+      } else {
+        Token pre = stk.pop();
+        if (pre.type = TokenType.TEXT) {
+          Raw txt = new Raw(pre.value);
+          Token begin = stk.pop();
+          Raw ele = new Element(begin.value);
+          ele.elements.add(txt);
+        }
+      }
+    }
+  }
+}

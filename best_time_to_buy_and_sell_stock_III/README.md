@@ -18,3 +18,6 @@ can refer to http://liangjiabin.com/blog/2015/04/leetcode-best-time-to-buy-and-s
 http://buttercola.blogspot.com/2016/01/leetcode-best-time-to-buy-and-sell.html
 
 时间O(n)，空间O(n)
+
+Should read this for a better undertanding of all those stock sell buy problem
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/discuss/75924/Most-consistent-ways-of-dealing-with-the-series-of-stock-problems

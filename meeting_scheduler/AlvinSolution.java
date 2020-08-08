@@ -1,13 +1,14 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.PriorityQueue;
 
 
 public class AlvinSolution {
     public List<Integer> minAvailableDuration(int[][] slots1, int[][] slots2, int duration) {
         int i1 = 0;
-        int i2 = 0;
- 
+        int i2 = 0
+
         preprocess(slots1);
         preprocess(slots2);
         while (i1 < slots1.length && i2 < slots2.length) {

@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 class MeetingSchedule {
   public List<Integer> minAvailableDuration(int[][] slots1, int[][] slots2, int duration) {
     // Do not need to check inputs since there are the contrains already
@@ -12,6 +14,7 @@ class MeetingSchedule {
     while (s1c < slots1.length && s2c < slots2.length) {
       if (!checkInnerInterval(slots1, s1c, duration)
               || !checkInnerInterval(slots2, s2c, duration)) {
+        LinkedList
         return results;
       }
       // Find the bigger value of the left side
