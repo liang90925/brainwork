@@ -190,7 +190,7 @@ public class SnakeGame {
             for (Point point: snakeGame.snake.body) {
                 System.out.println(point.r  +", "+ point.c);
 
-            }find
+            }
         }
     }
 

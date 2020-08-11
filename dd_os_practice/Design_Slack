@@ -1,0 +1,51 @@
+
+#Scenario:
+Design Channel Group Chat
+
+#Assumptions:
+1. Max 100 users / channel
+2. In average 1 user has around 10 channels
+3. In average 1 channel has in average 5 messages/ mins
+
+#Table Design:
+SQL VS NOSQL?
+CACHE ASIDE?
+
+UserTable
+- id
+- name
+- pw
+
+?UserChannelTable
+- userId
+- ChannelId
+- isAdmin
+- status
+
+?ChannelTable
+- ChannelId
+- ChannelTitle
+- List of UserIds?
+- Messages?
+
+?MessageTable (Huge) (Consider only store past 1 week data)
+- Message
+- CreatedAt
+- ChannelId
+- createdBy (userId)
+
+#Services:
+AccountService (Create/Update/Delete user Account...)
+LoginService ()
+ChannelService (Create/Delete Channel, Update Channel Info, add user, kickout users.....)
+MessageService (How to display new messages to users, push/pull? rate?)
+HistoryService (How to display history messages to users when user pull down to get old messages)
+
+
+#Scalability:
+How to handle when the messaging rate increases?
+How to handle new cases, ex: been able to edit a previous posted message
+
+
+
+#Failure Handle?
