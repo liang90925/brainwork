@@ -17,45 +17,45 @@ public class PackageDependencyPractice {
         }
     }
 
-    public List<String> getDependenciesFor(String pkg, Map<String, String[]> dependencies) {
-        Map<String, Node> nodeMap = new HashMap<>();
-
-        // Build Map
-        for (Map.Entry<String, String[]> entry: dependencies.entrySet()) {
-            String child = entry.getKey();
-            String[] parents = entry.getValue();
-
-            if (!nodeMap.containsKey(child)) {
-                nodeMap.put(child, new Node(child));
-            }
-            nodeMap.get(child).inDegree += parents.length;
-            nodeMap.get(child).parents.addAll(new ArrayList<>(Arrays.asList(parents)));
-
-            for (String parent: parents) {
-                if (!nodeMap.containsKey(parent)) {
-                    nodeMap.put(parent, new Node(parent));
-                }
-                nodeMap.get(parent).outDegree++;
-                nodeMap.get(parent).children.add(child);
-            }
-        }
-
-        Queue<String> que = new LinkedList<>();
-        que.add(pkg);
-        int baseDegree = nodeMap.get(pkg).outDegree;
-
-        List<String> results = new ArrayList<>();
-        while(!que.isEmpty()) {
-            String curr = que.poll();
-            for (String parent: nodeMap.get(curr).parents) {
-                if (--nodeMap.get(parent).outDegree == baseDegree) {
-                    results.add(parent);
-                    que.add(parent);
-                }
-            }
-        }
-
-    }
+//    public List<String> getDependenciesFor(String pkg, Map<String, String[]> dependencies) {
+//        Map<String, Node> nodeMap = new HashMap<>();
+//
+//        // Build Map
+//        for (Map.Entry<String, String[]> entry: dependencies.entrySet()) {
+//            String child = entry.getKey();
+//            String[] parents = entry.getValue();
+//
+//            if (!nodeMap.containsKey(child)) {
+//                nodeMap.put(child, new Node(child));
+//            }
+//            nodeMap.get(child).inDegree += parents.length;
+//            nodeMap.get(child).parents.addAll(new ArrayList<>(Arrays.asList(parents)));
+//
+//            for (String parent: parents) {
+//                if (!nodeMap.containsKey(parent)) {
+//                    nodeMap.put(parent, new Node(parent));
+//                }
+//                nodeMap.get(parent).outDegree++;
+//                nodeMap.get(parent).children.add(child);
+//            }
+//        }
+//
+//        Queue<String> que = new LinkedList<>();
+//        que.add(pkg);
+//        int baseDegree = nodeMap.get(pkg).outDegree;
+//
+//        List<String> results = new ArrayList<>();
+//        while(!que.isEmpty()) {
+//            String curr = que.poll();
+//            for (String parent: nodeMap.get(curr).parents) {
+//                if (--nodeMap.get(parent).outDegree == baseDegree) {
+//                    results.add(parent);
+//                    que.add(parent);
+//                }
+//            }
+//        }
+//
+//    }
     /**
      *
      * @param dependencies {{A -> [B, C]}, {B -> [D]}} A depends on B, C, B depends on D
